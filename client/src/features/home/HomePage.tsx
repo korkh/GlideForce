@@ -39,7 +39,7 @@ export default function HomePage() {
   }, []);
 
   const isSmallScreen = useMediaQuery("(max-width:600px)");
-  const titlePositionTop = isSmallScreen ? 50 : 250;
+  const titlePositionTop = isSmallScreen ? 100 : 250;
 
   const settings = {
     infinite: true,
@@ -71,7 +71,7 @@ export default function HomePage() {
         maxHeight="720px"
       >
         <Typography
-          variant={isSmallScreen ? "h4" : "h1"}
+          variant={isSmallScreen ? "h3" : "h1"}
           sx={{
             position: "absolute",
             top: titlePositionTop,
