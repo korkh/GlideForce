@@ -1,3 +1,7 @@
+# fly.toml app configuration file generated for glideforce on 2023-12-08T12:12:39+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
 app = "glideforce"
 primary_region = "arn"
@@ -9,9 +13,9 @@ kill_timeout = "5s"
 
 [env]
   ASPNETCORE_URLS = "http://+:8080"
-  StripeSettings__PublishableKey = "pk_test_51OHmt7FTVL1n528tkads1KBWc24mSqFUCIGNmKjDxUx9I5MCDJPC3hJl3IIQ7KHiXTeFQMWnnvwcm3ZRscHW7zbw00wypzxrUa"
-  Cloudinary__CloudName = "dkedpawwh"
   Cloudinary__ApiKey = "573843963545761"
+  Cloudinary__CloudName = "dkedpawwh"
+  StripeSettings__PublishableKey = "pk_test_51OHmt7FTVL1n528tkads1KBWc24mSqFUCIGNmKjDxUx9I5MCDJPC3hJl3IIQ7KHiXTeFQMWnnvwcm3ZRscHW7zbw00wypzxrUa"
 
 [http_service]
   internal_port = 8080
