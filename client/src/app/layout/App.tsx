@@ -33,13 +33,13 @@ function App() {
     initApp().then(() => setLoading(false));
   }, [initApp]);
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const palleteType = darkMode ? "dark" : "light";
   const theme = createTheme({
     palette: {
       mode: palleteType,
       background: {
-        default: palleteType === "light" ? "#eaeaea" : "#121212",
+        default: palleteType === "dark" ? "#121212" : "#eaeaea",
       },
     },
   });

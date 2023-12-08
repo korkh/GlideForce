@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class MainInit : Migration
+    public partial class MainMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,9 +61,9 @@ namespace API.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    BuyerId = table.Column<string>(type: "text", nullable: false),
-                    PaymentIntentId = table.Column<string>(type: "text", nullable: false),
-                    ClientSecret = table.Column<string>(type: "text", nullable: false)
+                    BuyerId = table.Column<string>(type: "text", nullable: true),
+                    PaymentIntentId = table.Column<string>(type: "text", nullable: true),
+                    ClientSecret = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -76,19 +76,19 @@ namespace API.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    BuyerId = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_FullName = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_Address1 = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_Address2 = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_City = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_State = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_Zip = table.Column<string>(type: "text", nullable: false),
-                    ShippingAddress_Country = table.Column<string>(type: "text", nullable: false),
+                    BuyerId = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_FullName = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_Address1 = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_Address2 = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_City = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_State = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_Zip = table.Column<string>(type: "text", nullable: true),
+                    ShippingAddress_Country = table.Column<string>(type: "text", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Subtotal = table.Column<long>(type: "bigint", nullable: false),
                     DeliveryFee = table.Column<long>(type: "bigint", nullable: false),
                     OrderStatus = table.Column<int>(type: "integer", nullable: false),
-                    PaymentIntentId = table.Column<string>(type: "text", nullable: false)
+                    PaymentIntentId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,14 +101,14 @@ namespace API.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     Price = table.Column<long>(type: "bigint", nullable: false),
-                    PictureUrl = table.Column<string>(type: "text", nullable: false),
-                    Type = table.Column<string>(type: "text", nullable: false),
-                    Brand = table.Column<string>(type: "text", nullable: false),
+                    PictureUrl = table.Column<string>(type: "text", nullable: true),
+                    Type = table.Column<string>(type: "text", nullable: true),
+                    Brand = table.Column<string>(type: "text", nullable: true),
                     QuantityInStock = table.Column<int>(type: "integer", nullable: false),
-                    PublicId = table.Column<string>(type: "text", nullable: false)
+                    PublicId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -226,13 +226,13 @@ namespace API.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false),
-                    FullName = table.Column<string>(type: "text", nullable: false),
-                    Address1 = table.Column<string>(type: "text", nullable: false),
-                    Address2 = table.Column<string>(type: "text", nullable: false),
-                    City = table.Column<string>(type: "text", nullable: false),
-                    State = table.Column<string>(type: "text", nullable: false),
-                    Zip = table.Column<string>(type: "text", nullable: false),
-                    Country = table.Column<string>(type: "text", nullable: false)
+                    FullName = table.Column<string>(type: "text", nullable: true),
+                    Address1 = table.Column<string>(type: "text", nullable: true),
+                    Address2 = table.Column<string>(type: "text", nullable: true),
+                    City = table.Column<string>(type: "text", nullable: true),
+                    State = table.Column<string>(type: "text", nullable: true),
+                    Zip = table.Column<string>(type: "text", nullable: true),
+                    Country = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -251,9 +251,9 @@ namespace API.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ItemOrdered_ProductId = table.Column<int>(type: "integer", nullable: false),
-                    ItemOrdered_Name = table.Column<string>(type: "text", nullable: false),
-                    ItemOrdered_PictureUrl = table.Column<string>(type: "text", nullable: false),
+                    ItemOrdered_ProductId = table.Column<int>(type: "integer", nullable: true),
+                    ItemOrdered_Name = table.Column<string>(type: "text", nullable: true),
+                    ItemOrdered_PictureUrl = table.Column<string>(type: "text", nullable: true),
                     Price = table.Column<long>(type: "bigint", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
                     OrderId = table.Column<int>(type: "integer", nullable: true)

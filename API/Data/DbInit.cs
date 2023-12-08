@@ -33,8 +33,7 @@ namespace API.Data
 
             var products = new List<Product>
             {
-                new Product
-                {
+                new() {
                     Name = "Angular Speedster Board 2000",
                     Description =
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -44,8 +43,7 @@ namespace API.Data
                     Type = "Boards",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Green Angular Board 3000",
                     Description = "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
                     Price = 15000,
@@ -54,8 +52,7 @@ namespace API.Data
                     Type = "Boards",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Core Board Speed Rush 3",
                     Description =
                         "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
@@ -65,8 +62,7 @@ namespace API.Data
                     Type = "Boards",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Net Core Super Board",
                     Description =
                         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
@@ -76,8 +72,7 @@ namespace API.Data
                     Type = "Boards",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "React Board Super Whizzy Fast",
                     Description =
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -87,8 +82,7 @@ namespace API.Data
                     Type = "Boards",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Typescript Entry Board",
                     Description =
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -98,8 +92,7 @@ namespace API.Data
                     Type = "Boards",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Core Blue Hat",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -109,8 +102,7 @@ namespace API.Data
                     Type = "Hats",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Green React Woolen Hat",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -120,8 +112,7 @@ namespace API.Data
                     Type = "Hats",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Purple React Woolen Hat",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -131,8 +122,7 @@ namespace API.Data
                     Type = "Hats",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Blue Code Gloves",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -142,8 +132,7 @@ namespace API.Data
                     Type = "Gloves",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Green Code Gloves",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -153,8 +142,7 @@ namespace API.Data
                     Type = "Gloves",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Purple React Gloves",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -164,8 +152,7 @@ namespace API.Data
                     Type = "Gloves",
                     QuantityInStock = 100
                 },
-                new Product
-                {
+                new() {
                     Name = "Green React Gloves",
                     Description =
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
@@ -175,9 +162,8 @@ namespace API.Data
                     Type = "Gloves",
                     QuantityInStock = 100
                 },
-                new Product
-                {
-                    Name = "Redis Red Boots",
+                new() {
+                    Name = "Redis 6IK Boots",
                     Description =
                         "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
                     Price = 25000,
@@ -186,9 +172,8 @@ namespace API.Data
                     Type = "Boots",
                     QuantityInStock = 100
                 },
-                new Product
-                {
-                    Name = "Core Red Boots",
+                new() {
+                    Name = "Core Pinaviar Boots",
                     Description =
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 18999,
@@ -197,9 +182,8 @@ namespace API.Data
                     Type = "Boots",
                     QuantityInStock = 100
                 },
-                new Product
-                {
-                    Name = "Core Purple Boots",
+                new() {
+                    Name = "Core Speedster Boots",
                     Description =
                         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
                     Price = 19999,
@@ -208,9 +192,8 @@ namespace API.Data
                     Type = "Boots",
                     QuantityInStock = 100
                 },
-                new Product
-                {
-                    Name = "Angular Purple Boots",
+                new() {
+                    Name = "Angular Extreme Boots",
                     Description = "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
                     Price = 15000,
                     PictureUrl = "/images/products/boot-ang2.png",
@@ -218,9 +201,8 @@ namespace API.Data
                     Type = "Boots",
                     QuantityInStock = 100
                 },
-                new Product
-                {
-                    Name = "Angular Blue Boots",
+                new() {
+                    Name = "Angular IOX Boots",
                     Description =
                         "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
                     Price = 18000,

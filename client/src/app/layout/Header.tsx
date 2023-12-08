@@ -1,19 +1,23 @@
-import { ShoppingCart } from "@mui/icons-material";
+import { useState } from "react";
+import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
 import {
   AppBar,
   Badge,
+  Box,
+  Drawer,
   IconButton,
   List,
   ListItem,
   Switch,
   Toolbar,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import { Link, NavLink } from "react-router-dom";
-import { useAppSelector } from "../store/configureStore";
-import SignedInMenu from "./SignedInMenu";
 import { BasketItem } from "../models/basket";
+import SignedInMenu from "./SignedInMenu";
+import { useAppSelector } from "../store/configureStore";
 
 const midLinks = [
   { title: "catalog", path: "/catalog" },
@@ -51,6 +55,18 @@ export default function Header({ handleThemeChange, darkMode }: Props) {
     0
   );
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpenDrawer(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpenDrawer(false);
+  };
+
   return (
     <AppBar position="static">
       <Toolbar
@@ -61,24 +77,42 @@ export default function Header({ handleThemeChange, darkMode }: Props) {
         }}
       >
         <Box display="flex" alignItems="center">
-          <Typography variant="h6" component={NavLink} to="/" sx={navStyles}>
-            Shopaholic
-          </Typography>
-          <Switch checked={darkMode} onChange={handleThemeChange} />
+          {isMobile ? ( // Hamburger menu icon for mobile
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerOpen}
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <Typography variant="h6" component={NavLink} to="/" sx={navStyles}>
+              GlideForce
+            </Typography>
+          )}
+          <Switch
+            checked={darkMode}
+            onChange={handleThemeChange}
+            defaultChecked
+          />
         </Box>
 
-        <List sx={{ display: "flex" }}>
-          {midLinks.map(({ title, path }) => (
-            <ListItem component={NavLink} to={path} key={path} sx={navStyles}>
-              {title.toUpperCase()}
-            </ListItem>
-          ))}
-          {user && user.roles?.includes("Admin") && (
-            <ListItem component={NavLink} to={"/inventory"} sx={navStyles}>
-              INVENTORY
-            </ListItem>
-          )}
-        </List>
+        {!isMobile && ( // Show midLinks on non-mobile screens
+          <List sx={{ display: "flex" }}>
+            {midLinks.map(({ title, path }) => (
+              <ListItem component={NavLink} to={path} key={path} sx={navStyles}>
+                {title.toUpperCase()}
+              </ListItem>
+            ))}
+            {user && user.roles?.includes("Admin") && (
+              <ListItem component={NavLink} to={"/inventory"} sx={navStyles}>
+                INVENTORY
+              </ListItem>
+            )}
+          </List>
+        )}
 
         <Box display="flex" alignItems="center">
           <IconButton
@@ -111,6 +145,33 @@ export default function Header({ handleThemeChange, darkMode }: Props) {
             </List>
           )}
         </Box>
+
+        {/* Drawer for mobile */}
+        <Drawer anchor="left" open={openDrawer} onClose={handleDrawerClose}>
+          <List>
+            {midLinks.map(({ title, path }) => (
+              <ListItem
+                component={NavLink}
+                to={path}
+                key={path}
+                sx={navStyles}
+                onClick={handleDrawerClose}
+              >
+                {title.toUpperCase()}
+              </ListItem>
+            ))}
+            {user && user.roles?.includes("Admin") && (
+              <ListItem
+                component={NavLink}
+                to={"/inventory"}
+                sx={navStyles}
+                onClick={handleDrawerClose}
+              >
+                INVENTORY
+              </ListItem>
+            )}
+          </List>
+        </Drawer>
       </Toolbar>
     </AppBar>
   );

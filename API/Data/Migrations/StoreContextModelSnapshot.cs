@@ -31,15 +31,12 @@ namespace API.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BuyerId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ClientSecret")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PaymentIntentId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -82,7 +79,6 @@ namespace API.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BuyerId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long>("DeliveryFee")
@@ -95,7 +91,6 @@ namespace API.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("PaymentIntentId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long>("Subtotal")
@@ -139,33 +134,27 @@ namespace API.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Brand")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
 
                     b.Property<string>("PublicId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("integer");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -289,31 +278,24 @@ namespace API.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Address1")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Address2")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("State")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Zip")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -451,31 +433,24 @@ namespace API.Data.Migrations
                                 .HasColumnType("integer");
 
                             b1.Property<string>("Address1")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("Address2")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("City")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("Country")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("FullName")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("State")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("Zip")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.HasKey("OrderId");
@@ -502,11 +477,9 @@ namespace API.Data.Migrations
                                 .HasColumnType("integer");
 
                             b1.Property<string>("Name")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<string>("PictureUrl")
-                                .IsRequired()
                                 .HasColumnType("text");
 
                             b1.Property<int>("ProductId")
@@ -520,8 +493,7 @@ namespace API.Data.Migrations
                                 .HasForeignKey("OrderItemId");
                         });
 
-                    b.Navigation("ItemOrdered")
-                        .IsRequired();
+                    b.Navigation("ItemOrdered");
                 });
 
             modelBuilder.Entity("API.Entities.UserAddress", b =>
@@ -596,8 +568,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.User", b =>
                 {
-                    b.Navigation("Address")
-                        .IsRequired();
+                    b.Navigation("Address");
                 });
 #pragma warning restore 612, 618
         }
