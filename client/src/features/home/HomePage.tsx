@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useRef } from "react";
 import Slider from "react-slick";
 
@@ -38,6 +38,8 @@ export default function HomePage() {
     };
   }, []);
 
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -68,7 +70,7 @@ export default function HomePage() {
         maxHeight="720px"
       >
         <Typography
-          variant="h1"
+          variant={isSmallScreen ? "h4" : "h1"}
           sx={{
             position: "absolute",
             top: 250,
