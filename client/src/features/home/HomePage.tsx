@@ -39,6 +39,7 @@ export default function HomePage() {
   }, []);
 
   const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const titlePositionTop = isSmallScreen ? 50 : 250;
 
   const settings = {
     infinite: true,
@@ -73,7 +74,7 @@ export default function HomePage() {
           variant={isSmallScreen ? "h4" : "h1"}
           sx={{
             position: "absolute",
-            top: 250,
+            top: titlePositionTop,
             left: "45%",
             transform: "translate(-30%, -50%)",
             zIndex: 2,
