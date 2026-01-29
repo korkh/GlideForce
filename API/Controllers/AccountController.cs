@@ -19,7 +19,8 @@ namespace API.Controllers
         public AccountController(
             UserManager<User> userManager,
             TokenService tokenService,
-            StoreContext context)
+            StoreContext context
+        )
         {
             _context = context;
             _tokenService = tokenService;
@@ -50,7 +51,7 @@ namespace API.Controllers
             {
                 Email = user.Email,
                 Token = await _tokenService.GenerateToken(user),
-                Basket = (anonimousBasket ?? userBasket)?.MapBasketToDto() // same as Basket = anonimousBasket != null ? anonimousBasket.MapBasketToDto() : userBasket?.MapBasketToDto()
+                Basket = (anonimousBasket ?? userBasket)?.MapBasketToDto(), // same as Basket = anonimousBasket != null ? anonimousBasket.MapBasketToDto() : userBasket?.MapBasketToDto()
             };
         }
 
@@ -88,7 +89,7 @@ namespace API.Controllers
             {
                 Email = user.Email,
                 Token = await _tokenService.GenerateToken(user),
-                Basket = userBasket?.MapBasketToDto()
+                Basket = userBasket?.MapBasketToDto(),
             };
         }
 
@@ -96,8 +97,8 @@ namespace API.Controllers
         [HttpGet("savedAddress")]
         public async Task<ActionResult<UserAddress>> GetSavedAddress()
         {
-            return await _userManager.Users
-                .Where(x => x.UserName == User.Identity.Name)
+            return await _userManager
+                .Users.Where(x => x.UserName == User.Identity.Name)
                 .Select(user => user.Address)
                 .FirstOrDefaultAsync();
         }
@@ -111,8 +112,8 @@ namespace API.Controllers
                 return null;
             }
 
-            return await _context.Baskets
-                .Include(i => i.Items)
+            return await _context
+                .Baskets.Include(i => i.Items)
                 .ThenInclude(p => p.Product)
                 .FirstOrDefaultAsync(basket => basket.BuyerId == buyerId);
         }
